@@ -16,7 +16,7 @@ warnings.filterwarnings("ignore")   # Suppress the RunTimeWarning on unicode
 parser = argparse.ArgumentParser(description='Sequence Modeling - Character Level Language Model')
 parser.add_argument('--batch_size', type=int, default=32, metavar='N',
                     help='batch size (default: 32)')
-parser.add_argument('--cuda', action='store_false',
+parser.add_argument('--cuda', action='store_true', default=False,
                     help='use CUDA (default: True)')
 parser.add_argument('--dropout', type=float, default=0.1,
                     help='dropout applied to layers (default: 0.1)')
@@ -30,7 +30,7 @@ parser.add_argument('--ksize', type=int, default=3,
                     help='kernel size (default: 3)')
 parser.add_argument('--levels', type=int, default=3,
                     help='# of levels (default: 3)')
-parser.add_argument('--log-interval', type=int, default=100, metavar='N',
+parser.add_argument('--log-interval', type=int, default=10, metavar='N',
                     help='report interval (default: 100')
 parser.add_argument('--lr', type=float, default=4,
                     help='initial learning rate (default: 4)')
