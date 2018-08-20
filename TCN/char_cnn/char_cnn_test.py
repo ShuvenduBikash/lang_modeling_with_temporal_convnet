@@ -58,7 +58,10 @@ if torch.cuda.is_available():
 
 
 print(args)
-file, file_len, valfile, valfile_len, testfile, testfile_len, corpus = data_generator(args)
+file, file_len, valfile, valfile_len, testfile, testfile_len, corpus = bangla_data_generator(args)
+print(file_len)
+print(valfile_len)
+print(testfile_len)
 
 n_characters = len(corpus.dict)
 train_data = batchify(char_tensor(corpus, file), args.batch_size, args)

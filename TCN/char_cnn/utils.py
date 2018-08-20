@@ -31,6 +31,25 @@ def data_generator(args):
     return file, file_len, valfile, valfile_len, testfile, testfile_len, corpus
 
 
+def bangla_data_generator(args):
+    import io
+    f = io.open("C:\\Users\\user\\Documents\\datasets\\NLP_data\\bangla\\new_ben_wiki.txt", mode="r", encoding="utf-8")
+    file = f.__next__()
+
+    f = io.open("C:\\Users\\user\\Documents\\datasets\\NLP_data\\bangla\\test.txt", mode="r", encoding="utf-8")
+    testfile = f.__next__()
+
+    f = io.open("C:\\Users\\user\\Documents\\datasets\\NLP_data\\bangla\\val.txt", mode="r", encoding="utf-8")
+    valfile = f.__next__()
+
+    file_len = len(file)
+    valfile_len = len(valfile)
+    testfile_len = len(testfile)
+    corpus = Corpus(file + " " + valfile + " " + testfile)
+
+    return file, file_len, valfile, valfile_len, testfile, testfile_len, corpus
+
+
 def read_file(filename):
     file = unidecode.unidecode(open(filename).read())
     return file, len(file)
